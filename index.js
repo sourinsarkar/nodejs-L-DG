@@ -18,12 +18,14 @@ fs.writeFile(path.join(__dirname, 'files', 'reply.txt'), 'Nice to meet you', (er
 
     fs.appendFile(path.join(__dirname, 'files', 'reply.txt',), '\nOne more thing', (err) => {
         if (err) throw err;
-        console.log('Append complete for REPL')
+        console.log('Append complete for REPLY')
     });
 
-    fs.rename(path.join(__dirname, 'files', 'reply.txt',), path.join(__dirname, 'files', 'newReply.txt'), (err) => {
+    const newFileName = 'newReply.txt';
+
+    fs.rename(path.join(__dirname, 'files', 'reply.txt',), path.join(__dirname, 'files', `${newFileName}`), (err) => {
         if (err) throw err;
-        console.log('Append complete for REPL')
+        console.log(`Renamed REPLY -> ${newFileName}`)
     });
 });
 
