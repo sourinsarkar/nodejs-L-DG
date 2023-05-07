@@ -15,7 +15,17 @@ console.log('Hello...');
 fs.writeFile(path.join(__dirname, 'files', 'reply.txt'), 'Nice to meet you', (err) => {
     if(err) throw err;
     console.log('Write complete');
+
+    fs.appendFile(path.join(__dirname, 'files', 'reply.txt',), '\nOne more thing', (err) => {
+        if(err) throw err;
+        console.log('Append complete for REPL')
+    });
 });
+
+fs.appendFile(path.join(__dirname, 'files', 'text.txt'), 'Namaste Duniya', (err) => {
+    if(err) throw err;
+    console.log('Append complete for TEXT');
+})
 
 
 process.on('uncaughtException', err => {
